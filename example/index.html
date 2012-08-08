@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>jQuery-dat.GUI Example</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/normalize.css">
+
+	<script src="lib/jquery-1.7.2.js"></script>
+	
+	<script src="../jquery.dat.gui.js"></script>
+	
+	<script src="lib/dat.gui.js"></script>
+	
+	<style>
+		.box, .box h2 {
+			position: absolute;
+		}
+		
+		.box {
+			background-color: blue;
+			outline:	1px solid red;
+			/*top: 300px;
+			left: 300px;*/
+		}
+		.red {
+			background-color: red;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+		
+		.whiteText {
+			color:	white;
+		}
+		
+	</style>
+</head>
+<body>
+
+    <h1>jQuery dat.GUI Example</h1>
+	<p><a href="https://github.com/Laurian/jquery-dat-gui">https://github.com/Laurian/jquery-dat-gui</a></p>
+
+	<p>Check this page's source.</p>
+
+	<div class="box red">
+		<h2>TEST</h2>
+	</div>
+	
+	<script>
+		$('.box').datgui({
+			name: 	'BOX',
+			toggle: {
+				red: 	true,
+				yellow: false
+			},
+			css: {
+				top: '300px',
+				left: '400px',
+				width: '300px',
+				height: '300px'
+			},
+			range: {
+				top: [100, 600],
+				left: [0, 700],
+				width: [10, 500],
+				height: [10, 500]
+			}
+		});
+		
+		$('.box h2').datgui({
+			name: 'Label',
+			gui: $('.box').data('datgui'),
+			toggle: {
+				whiteText: false
+			},
+			css: {
+				top: '0px',
+				left: '0px',
+				fontSize: '16px'
+			},
+			range: {
+				top: [0, 300],
+				left: [0, 300]
+			}
+		});
+	</script>
+	
+
+</body>
+</html>
